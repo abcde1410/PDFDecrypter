@@ -1,0 +1,24 @@
+{
+    "name": "abcde1410/pdfdecrypter",
+    "description": "PDF Decrypter is a standalone PHP library allowing quick and convenient decryption and permanently removing password from PDF files. Currently in beta phase. Throws custom exceptions for better error handling.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Abcde1410\\PDFDecrypter\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "abcde1410"
+        }
+    ],
+    "require": {
+        "php": "^8.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5"
+    },
+    "minimum-stability": "beta",
+    "require": {}
+}

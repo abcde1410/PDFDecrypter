@@ -1,0 +1,6 @@
+tests/
+samples/
+vendor/
+phpunit.xml
+index.php
+composer.lock
