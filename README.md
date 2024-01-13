@@ -74,7 +74,7 @@ $decrypter->show();
 ```
 To download the decrypted file use `download()` method:
 ```php
-$decrypted->download();
+$decrypter->download();
 ```
 
 ## License
