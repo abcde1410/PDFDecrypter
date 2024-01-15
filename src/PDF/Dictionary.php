@@ -165,7 +165,7 @@ class Dictionary extends StringObject implements ArrayAccess
                         }
                     }
                     elseif (str_starts_with($dictionary, '[')) {
-                        preg_match("/\[((?>[^\[\]]+)|(?R))*\]/", $dictionary, $matches);
+                        preg_match("/\[((\((?>[^\[\)]+|(?R))*\)*|(?>[^\[\]]*)|(?R))+)\]/", $dictionary, $matches);
                         $value = $this->createArray($matches[0]);
                     }
                     elseif (str_starts_with($dictionary, '(')) {
