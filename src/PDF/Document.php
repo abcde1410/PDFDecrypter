@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace Abcde1410\PDFDecrypter\PDF;
 
-use Abcde1410\PDFDecrypter\Encoding\Filter;
-use Abcde1410\PDFDecrypter\Encoding\Predictor;
+use Abcde1410\PDFDecrypter\Encoding\FilterFactory;
+use Abcde1410\PDFDecrypter\Encoding\PredictorFactory;
 use Abcde1410\PDFDecrypter\Tools\StringTools;
 use Abcde1410\PDFDecrypter\Exceptions\PDFDecrypterException;
 
@@ -187,8 +187,8 @@ class Document
     private function createXRefStream(DocumentObject $XRefObject): string
     {
         $numberOfBytesPerEntry = $XRefObject->dictionary['DecodeParms']['Columns'] + 1;
-        $predictor = new Predictor((int) $XRefObject->dictionary['DecodeParms']['Columns'], (int) $XRefObject->dictionary['DecodeParms']['Predictor']);
-        $filter = new Filter($XRefObject->dictionary['Filter']);
+        $predictor = new PredictorFactory((int) $XRefObject->dictionary['DecodeParms']['Columns'], (int) $XRefObject->dictionary['DecodeParms']['Predictor']);
+        $filter = new FilterFactory($XRefObject->dictionary['Filter']);
         $entry = $filter->decode($XRefObject->stream);
         $entry = $predictor->decode($entry);
         $entries = str_split($entry, $numberOfBytesPerEntry);

@@ -176,7 +176,7 @@ class PDFDecrypter
      * @return string Decrypted content
      * 
      * @throws PDFDecrypterException when the document content for decryption has not been set
-     * @throws PDFDecrypterException when the authorization password has not been set or when the provided authorization password is incorrect
+     * @throws PDFDecrypterException when the authentication password has not been set or when the provided authentication password is incorrect
      */
     protected function decrypt(): string
     {
@@ -185,7 +185,7 @@ class PDFDecrypter
         }
         elseif(empty($this->password) || !$this->password->verified) {
             if (!$this->verifyPassword()) {
-                throw new PDFDecrypterException('Unable to decrypt due to an incorrect authorization password provided');
+                throw new PDFDecrypterException('Unable to decrypt due to an incorrect authentication password provided');
             }
             $this->password->verify();
         }
